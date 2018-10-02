@@ -1,4 +1,5 @@
 import fitz
+from select_file import get_file
 class embedded_files:
     def __init__(self,location_of_pdf):
         self.location_of_pdf=location_of_pdf
@@ -14,5 +15,6 @@ class embedded_files:
         finally:
             pdf.close()
 if __name__=="__main__":
-    a=embedded_files(r"C:\Users\Excel_Software\Documents\GitHub\PDFValidator\Samples\include-attachments.pdf")    
-    print(a.EMBEDDED_CHECK)
+    pdf=get_file()
+    if pdf[0]=="Submit":
+        print(embedded_files(pdf[1]).EMBEDDED_FILES)
